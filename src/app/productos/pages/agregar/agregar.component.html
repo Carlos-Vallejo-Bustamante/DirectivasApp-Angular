@@ -16,7 +16,7 @@
                   color="red"
                   [mensaje]="texto1"
                   [color]="color"
-                  *ngIf="campoValido('nombre')">
+                  [valido]="!campoValido('nombre')">
             </span>
         </div>
     </div>

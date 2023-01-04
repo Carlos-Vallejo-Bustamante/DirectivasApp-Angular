@@ -11,13 +11,21 @@ export class ErrorMsgDirective implements OnInit, OnChanges {
   htmlElement: ElementRef<HTMLElement>;
 
   @Input() set color(valor: string) {
-    this.htmlElement.nativeElement.style.color = valor;
+    this.setColor();
     this._color = valor;
   }
   // @Input() mensaje: string = 'Debe ingresar este campo';
   @Input() set mensaje(valor: string) {
-    this.htmlElement.nativeElement.innerText = valor;
+    this.setMensaje();
     this._mensaje = valor;
+  }
+
+  @Input() set valido(valor: boolean) {
+    if (valor) {
+      this.htmlElement.nativeElement.classList.add('hidden');
+    } else {
+      this.htmlElement.nativeElement.classList.remove('hidden');
+    }
   }
 
 
@@ -45,18 +53,18 @@ export class ErrorMsgDirective implements OnInit, OnChanges {
     // console.log(this.color); undefined
     // console.log(this.mensaje); undefined
 
-    //   this.setColor();
-    //   this.setMensaje();
+    this.setColor();
+    this.setMensaje();
     this.setClase();
   }
 
-  // setColor(): void {
-  //   this.htmlElement.nativeElement.style.color = this.color;
-  // }
+  setColor(): void {
+    this.htmlElement.nativeElement.style.color = this._color;
+  }
 
-  // setMensaje(): void {
-  //   this.htmlElement.nativeElement.innerText = this.mensaje;
-  // }
+  setMensaje(): void {
+    this.htmlElement.nativeElement.innerText = this._mensaje;
+  }
 
   setClase() {
     this.htmlElement.nativeElement.classList.add('form-text')
