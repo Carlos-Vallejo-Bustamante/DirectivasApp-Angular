@@ -1,4 +1,4 @@
-<h1 class="mt-5">Agregar Producto</h1>
+<h1 class="mt-5">Agregar Producto: <small>{{texto1}}</small></h1>
 <hr>
 
 <form [formGroup]="miFormulario">
@@ -14,6 +14,8 @@
         <div class="col-auto">
             <span error-msg
                   color="red"
+                  [mensaje]="texto1"
+                  [color]="color"
                   *ngIf="campoValido('nombre')">
             </span>
         </div>
@@ -21,8 +23,14 @@
 
     <div class="row mt-3">
         <div class="col">
-            <button class="btn btn-primary">
+            <button class="btn btn-primary me-2"
+                    (click)="cambiarNombre()">
                 Guardar
+            </button>
+
+            <button class="btn btn-primary"
+                    (click)="cambiarColor()">
+                Cambiar Color
             </button>
         </div>
     </div>
