@@ -16,7 +16,7 @@ export class AgregarComponent {
   constructor(private formBuilder: FormBuilder) { }
 
   campoValido(campo: string): boolean {
-    return this.miFormulario.get(campo)?.invalid || false;
+    return this.miFormulario.get(campo)?.invalid && this.miFormulario.controls['nombre'].touched || false;
   }
 
 }
