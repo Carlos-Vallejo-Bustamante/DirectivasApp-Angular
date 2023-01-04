@@ -28,7 +28,7 @@ export class AgregarComponent {
   }
 
   cambiarNombre() {
-    this.texto1 = 'Juan Carlos';
+    this.texto1 = Math.random().toString();
   }
 
 }
