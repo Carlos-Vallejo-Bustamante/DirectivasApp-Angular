@@ -43,3 +43,13 @@
 </h3>
 <pre>Value: {{ miFormulario.value | json }}</pre>
 <pre>Valid: {{ miFormulario.valid }}</pre>
+
+
+<div class="row"
+     *customIf="miFormulario.valid">
+    <div class="col">
+        <div class="alert alert-primary">
+            Todo OK!
+        </div>
+    </div>
+</div>

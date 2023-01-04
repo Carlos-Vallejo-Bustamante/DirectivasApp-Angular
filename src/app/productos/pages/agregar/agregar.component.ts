@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 })
 export class AgregarComponent {
 
-  color: string = 'red';
+  color: string = 'green';
   texto1: string = 'Carlos Vallejo'
 
   miFormulario: FormGroup = this.formBuilder.group({
@@ -20,7 +20,7 @@ export class AgregarComponent {
   constructor(private formBuilder: FormBuilder) { }
 
   campoValido(campo: string): boolean {
-    return this.miFormulario.get(campo)?.invalid && this.miFormulario.controls['nombre'].touched || false;
+    return this.miFormulario.get(campo)?.invalid || false;
   }
 
   cambiarColor() {
